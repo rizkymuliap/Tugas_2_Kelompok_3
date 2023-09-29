@@ -1,0 +1,39 @@
+﻿@model Tugas_2_Kelompok_3.Models.Jenis_Peralatan
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Tambah Jenis Peralatan";
+}
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Tambah Buku</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-controller="Jenis_Peralatan" asp-action="Create">
+                            <div class="form-group">
+                                <label asp-for="nama_jenis_peralatan" class="control-label">Nama Jenis Peraltan</label>
+                                <input asp-for="nama_jenis_peralatan" class="form-control" name="nama_jenis_peralatan" />
+                                <span asp-validation-for="nama_jenis_peralatan" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="deskripsi_jenis_peralatan" class="control-label">Deskripsi</label>
+                                <input asp-for="deskripsi_jenis_peralatan" class="form-control" name="deskripsi_jenis_peralatan"/>
+                                <span asp-validation-for="deskripsi_jenis_peralatan" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
