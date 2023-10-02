@@ -1,9 +1,9 @@
 ﻿@*
     For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 *@
-@model List<Tugas_2_Kelompok_3.Models.Jenis_Peralatan>
+@model List<Tugas_2_Kelompok_3.Models.Peralatan>
 @{
-    ViewData["Title"] = "Master Jenis Peralatan";
+    ViewData["Title"] = "Master Peralatan";
     int no = 1;
 }
 
@@ -13,7 +13,7 @@
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title">Master Jenis Peralatan</h5>
+                    <h5 class="card-title">Master Peralatan</h5>
                     <hr />
                     @if (TempData["SuccessMessage"] != null)
                     {
@@ -26,47 +26,53 @@
                         </div>
                     }
 
-                    <a class="btn btn-primary" asp-action="Create">Tambah Jenis Peralatan</a>
+                    <a class="btn btn-primary" asp-action="Create">Tambah Peralatan</a>
                     <!-- Table with stripped rows -->
                     <table class="table datatable">
                         <thead>
                             <tr>
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Jenis Peralatan</th>
+                                <th scope="col">Nama Peralatan</th>
                                 <th scope="col">Deskripsi</th>
+                                <th scope="col">Harga Beli</th>
+                                <th scope="col">stok</th>
                                 <th scope="col">Aksi</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach (var jenis_Peralatan in Model)
+                            @foreach (var peralatan in Model)
                             {
                                 <tr>
                                     <td>@(no++)</td>
-                                    <td>@jenis_Peralatan.nama_jenis_peralatan</td>
-                                    <td>@jenis_Peralatan.deskripsi_jenis_peralatan</td>
+                                    <td>@peralatan.nama_peralatan</td>
+                                    <td>@peralatan.deskripsi_peralatan</td>
+                                    <td>@peralatan.Harga_Beli</td>
+                                    <td>@peralatan.stok</td>
                                     <td>
-                                        <button class="btn btn-sm btn-danger delete-button" data-id="@jenis_Peralatan.Id">
+                                        <button class="btn btn-sm btn-danger delete-button" data-id="@peralatan.Id">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                        <a asp-controller="Jenis_Peralatan" asp-action="Edit" asp-route-id="@jenis_Peralatan.Id" class="btn btn-sm btn-primary">
+                                        <a asp-controller="Peralatan" asp-action="Edit" asp-route-id="@peralatan.Id" class="btn btn-sm btn-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
-                                        <button class="btn btn-sm btn-info btn-info-modal" data-toggle="modal" data-target="#infoModal_@jenis_Peralatan.Id">
+                                        <button class="btn btn-sm btn-info btn-info-modal" data-toggle="modal" data-target="#infoModal_@peralatan.Id">
                                             <i class="fas fa-info-circle"></i>
                                         </button>
 
-                                        <div class="modal fade" id="infoModal_@jenis_Peralatan.Id" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
+                                        <div class="modal fade" id="infoModal_@peralatan.Id" tabindex="-1" role="dialog" aria-labelledby="infoModalLabel" aria-hidden="true">
                                             <div class="modal-dialog modal-dialog-centered">
                                                 <div class="modal-content">
                                                     <div class="modal-header">
-                                                        <h5 class="modal-title">Informasi Jenis Peralatan</h5>
+                                                        <h5 class="modal-title">Informasi Peralatan</h5>
                                                         <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close">
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <strong>Id:</strong> @jenis_Peralatan.Id<br />
-                                                        <strong>Nama Jenis Peralatan:</strong> @jenis_Peralatan.nama_jenis_peralatan<br />
-                                                        <strong>Deskripsi:</strong> @jenis_Peralatan.deskripsi_jenis_peralatan<br />
+                                                        <strong>Id:</strong> @peralatan.Id<br />
+                                                        <strong>Nama Peralatan:</strong> @peralatan.nama_peralatan<br />
+                                                        <strong>Deskripsi:</strong> @peralatan.deskripsi_peralatan<br />
+                                                        <strong>Harga Beli:</strong> @peralatan.Harga_Beli<br />
+                                                        <strong>Stok:</strong> @peralatan.stok<br />
                                                     </div>
                                                     <div class="modal-footer">
                                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Tutup</button>
