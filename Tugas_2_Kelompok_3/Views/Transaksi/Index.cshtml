@@ -1,5 +1,111 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@model List<Tugas_2_Kelompok_3.Models.Transaksi>
 @{
+    ViewData["Title"] = "Master Transaksi";
+    int no = 1;
 }
+
+<section class="section">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Master Transaksi</h5>
+                    <hr />
+                    @if (TempData["SuccessMessage"] != null)
+                    {
+                        <div class="row">
+                            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                                <i class="bi bi-check-circle me-1"></i>
+                                <strong>Sukses!</strong> @TempData["SuccessMessage"]
+                                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            </div>
+                        </div>
+                    }
+
+                    <a class="btn btn-primary" asp-action="Create">Tambah Transaksi</a>
+                    <!-- Table with stripped rows -->
+                    <table class="table datatable">
+                        <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">ID Peralatan</th>
+                                <th scope="col">Tanggal Transaksi</th>
+                                <th scope="col">Jenis Transaksi</th>
+                                <th scope="col">Jumlah Item</th>
+                                <th scope="col">Total Harga</th>
+                                <th scope="col">Nama Pelanggan</th>
+                                <th scope="col">Metode Pembayaran</th>
+                                <th scope="col">Status Pengiriman</th>
+                                <th scope="col">Alamat Pengiriman</th>
+                                <th scope="col">Aksi</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var transaksi in Model)
+                            {
+                                <tr>
+                                    <td>@(no++)</td>
+                                    <td>@transaksi.ID_Peralatan</td>
+                                    <td>@transaksi.Tanggal_Transaksi</td>
+                                    <td>@transaksi.Jenis_Transaksi</td>
+                                    <td>@transaksi.Jumlah_Item</td>
+                                    <td>@transaksi.Total_Harga</td>
+                                    <td>@transaksi.Nama_Pelanggan</td>
+                                    <td>@transaksi.Metode_Pembayaran</td>
+                                    <td>@transaksi.Status_Pengiriman</td>
+                                    <td>@transaksi.Alamat_Pengiriman</td>
+                                    <td>
+                                        <button class="btn btn-sm btn-danger delete-button" data-id="@transaksi.Id_trs">
+                                            <i class="fas fa-trash"></i>
+                                        </button>
+                                        <a asp-controller="Transaksi" asp-action="Edit" asp-route-id="@transaksi.Id_trs" class="btn btn-sm btn-primary">
+                                            <i class="fas fa-edit"></i>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<script>
+    $(document).ready(function () {
+        $(".delete-button").click(function () {
+            var transaksiId = $(this).data("id");
+
+            swal({
+                title: "Hapus Transaksi?",
+                text: "Apakah Anda yakin ingin menghapus transaksi ini?",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            }).then((willDelete) => {
+                if (willDelete) {
+                    // Mengirimkan permintaan penghapusan ke controller
+                    $.ajax({
+                        url: "/Transaksi/Delete/" + transaksiId,
+                        type: "POST",
+                        success: function (data) {
+                            // Tampilkan pesan sukses jika diperlukan
+                            if (data.success) {
+                                swal("Sukses!", data.message, "success");
+                                // Refresh halaman setelah menghapus
+                                location.reload();
+                            } else {
+                                swal("Gagal!", data.message, "error");
+                            }
+                        },
+                        error: function () {
+                            swal("Error!", "Terjadi kesalahan saat menghapus transaksi.", "error");
+                        }
+                    });
+                }
+            });
+        });
+    });
+</script>
