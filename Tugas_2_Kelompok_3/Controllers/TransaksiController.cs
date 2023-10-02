@@ -14,7 +14,7 @@ public class TransaksiController : Controller
     {
         new Transaksi
         {
-            Id = 1,
+            Id_trs = 1,
             ID_Peralatan = 101,
             Tanggal_Transaksi = DateTime.Now,
             Jenis_Transaksi = "Penjualan",
@@ -27,7 +27,7 @@ public class TransaksiController : Controller
         },
         new Transaksi
         {
-            Id = 2,
+            Id_trs = 2,
             ID_Peralatan = 102,
             Tanggal_Transaksi = DateTime.Now,
             Jenis_Transaksi = "Pembelian",
@@ -59,12 +59,12 @@ public class TransaksiController : Controller
         {
             int new_id = 1;
 
-            while (transaksi.Any(b => b.Id == new_id))
+            while (transaksi.Any(b => b.Id_trs == new_id))
             {
                 new_id++;
             }
 
-            trs.Id = new_id;
+            trs.Id_trs = new_id;
             trs.status = 1;
 
             transaksi.Add(trs);
