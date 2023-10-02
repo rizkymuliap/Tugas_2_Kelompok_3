@@ -72,11 +72,11 @@ namespace Tugas_2_Kelompok_3.Controllers
                 if (jenis_peralatan != null)
                 {
                     peralatans.Remove(jenis_peralatan);
-                    response = new { success = true, message = "Jenis peralatan berhasil dihapus." };
+                    response = new { success = true, message = "Peralatan berhasil dihapus." };
                 }
                 else
                 {
-                    response = new { success = false, message = "Jenis peralatan tidak ditemukan." };
+                    response = new { success = false, message = "Peralatan tidak ditemukan." };
                 }
             }
             catch (Exception ex)
@@ -115,7 +115,7 @@ namespace Tugas_2_Kelompok_3.Controllers
                 new_Peralatan.nama_peralatan = peralatan.nama_peralatan;
                 new_Peralatan.deskripsi_peralatan = peralatan.deskripsi_peralatan;
 
-                TempData["SuccessMessage"] = "Jenis peralatan berhasil diupdate.";
+                TempData["SuccessMessage"] = "Peralatan berhasil diupdate.";
                 return RedirectToAction("Index");
             }
 
