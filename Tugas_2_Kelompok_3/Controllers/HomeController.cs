@@ -7,6 +7,9 @@ namespace Tugas_2_Kelompok_3.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private static List<Peralatan> peralatans = InitializeData();
+
+
 
         public HomeController(ILogger<HomeController> logger)
         {
