@@ -48,7 +48,7 @@
                                         <button class="btn btn-sm btn-danger delete-button" data-id="@jenis_Peralatan.Id">
                                             <i class="fas fa-trash"></i>
                                         </button>
-                                        <a asp-controller="Buku" asp-action="Edit" asp-route-id="@jenis_Peralatan.Id" class="btn btn-sm btn-primary">
+                                        <a asp-controller="Jenis_Peralatan" asp-action="Edit" asp-route-id="@jenis_Peralatan.Id" class="btn btn-sm btn-primary">
                                             <i class="fas fa-edit"></i>
                                         </a>
                                         <button class="btn btn-sm btn-info btn-info-modal" data-toggle="modal" data-target="#infoModal_@jenis_Peralatan.Id">
@@ -90,11 +90,11 @@
 <script>
     $(document).ready(function () {
         $(".delete-button").click(function () {
-            var bukuId = $(this).data("id");
+            var jenisPeralatanId = $(this).data("id");
 
             swal({
-                title: "Hapus Buku?",
-                text: "Apakah Anda yakin ingin menghapus buku ini?",
+                title: "Hapus Jenis Peralatan?",
+                text: "Apakah Anda yakin ingin menghapus jenis peralatan ini?",
                 icon: "warning",
                 buttons: true,
                 dangerMode: true,
@@ -102,7 +102,7 @@
                 if (willDelete) {
                     // Mengirimkan permintaan penghapusan ke controller
                     $.ajax({
-                        url: "/Buku/Delete/" + bukuId,
+                        url: "/Jenis_Peralatan/Delete/" + jenisPeralatanId,
                         type: "POST",
                         success: function (data) {
                             // Tampilkan pesan sukses jika diperlukan
@@ -115,7 +115,7 @@
                             }
                         },
                         error: function () {
-                            swal("Error!", "Terjadi kesalahan saat menghapus buku.", "error");
+                            swal("Error!", "Terjadi kesalahan saat menghapus jenis peralatan.", "error");
                         }
                     });
                 }
