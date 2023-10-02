@@ -6,7 +6,7 @@ namespace Tugas_2_Kelompok_3.Models
     public class Transaksi
     {
         
-        public int Id { get; set; }
+        public int Id_trs { get; set; }
 
         public int ID_Peralatan { get; set; }
 
