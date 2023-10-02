@@ -14,14 +14,20 @@ namespace Tugas_2_Kelompok_3.Controllers
                 {
                     Id = 1,
                     nama_peralatan = "Boyolali",
+                    Id_jenis = 1,
                     deskripsi_peralatan = "Roni Prasetyo",
+                    Harga_Beli = 100000,
+                    stok = 20,
                     status = 1
                 },
                 new Peralatan
                 {
                     Id = 2,
                     nama_peralatan = "Boyolali",
+                    Id_jenis = 1,
                     deskripsi_peralatan = "Roni Prasetyo",
+                    Harga_Beli = 100000,
+                    stok = 20,
                     status = 1
                 }
             };
@@ -72,11 +78,11 @@ namespace Tugas_2_Kelompok_3.Controllers
                 if (jenis_peralatan != null)
                 {
                     peralatans.Remove(jenis_peralatan);
-                    response = new { success = true, message = "Jenis peralatan berhasil dihapus." };
+                    response = new { success = true, message = "Peralatan berhasil dihapus." };
                 }
                 else
                 {
-                    response = new { success = false, message = "Jenis peralatan tidak ditemukan." };
+                    response = new { success = false, message = "Peralatan tidak ditemukan." };
                 }
             }
             catch (Exception ex)
@@ -114,6 +120,9 @@ namespace Tugas_2_Kelompok_3.Controllers
 
                 new_Peralatan.nama_peralatan = peralatan.nama_peralatan;
                 new_Peralatan.deskripsi_peralatan = peralatan.deskripsi_peralatan;
+                new_Peralatan.Harga_Beli = peralatan.Harga_Beli;
+                new_Peralatan.Id_jenis = peralatan.Id_jenis;
+                new_Peralatan.stok = peralatan.stok;
 
                 TempData["SuccessMessage"] = "Peralatan berhasil diupdate.";
                 return RedirectToAction("Index");

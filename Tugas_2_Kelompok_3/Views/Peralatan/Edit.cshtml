@@ -14,11 +14,11 @@
                         <h4 class="card-title">Edit Peralatan</h4>
                     </div>
                     <div class="card-body">
-                        <form method="post" asp-controller="Jenis_Peralatan" asp-action="Edit">
+                        <form method="post" asp-controller="Peralatan" asp-action="Edit">
                             <input type="hidden" asp-for="Id" />
                             <div class="form-group">
-                                <label asp-for="nama_peralatan" class="control-label">Nama Jenis Peraltan</label>
-                                <input asp-for="nama_peralatan" class="form-control" name="nama_jenis_peralatan" />
+                                <label asp-for="nama_peralatan" class="control-label">Nama Peraltan</label>
+                                <input asp-for="nama_peralatan" class="form-control" name="nama_peralatan" />
                                 <span asp-validation-for="nama_peralatan" class="text-danger"></span>
                             </div>
                             <div class="form-group">

@@ -32,5 +32,7 @@ namespace Tugas_2_Kelompok_3.Models
 
         [Required(ErrorMessage = "Alamat Pengiriman wajib diisi.")]
         public string Alamat_Pengiriman { get; set; }
+
+        public int status { get; set; }
     }
 }
