@@ -115,7 +115,7 @@ namespace Tugas_2_Kelompok_3.Controllers
                 new_Peralatan.nama_peralatan = peralatan.nama_peralatan;
                 new_Peralatan.deskripsi_peralatan = peralatan.deskripsi_peralatan;
 
-                TempData["SuccessMessage"] = "Jenis peralatan berhasil diupdate.";
+                TempData["SuccessMessage"] = "Peralatan berhasil diupdate.";
                 return RedirectToAction("Index");
             }
 
