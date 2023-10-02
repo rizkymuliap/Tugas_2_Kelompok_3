@@ -28,6 +28,7 @@
 
     <!-- Template Main CSS File -->
     <link href="~/Content/assets/css/style.css" rel="stylesheet">
+    <link href="~/asset/css/styles.min.css" rel="stylesheet">
 
     <!-- =======================================================
     * Template Name: NiceAdmin
@@ -52,46 +53,77 @@
                 <img src="~/Content/assets/img/logo.png" alt="">
                 <span class="d-none d-lg-block">PRG4</span>
             </a>
-            <i class="bi bi-list toggle-sidebar-btn"></i>
+           @*  <i class="bi bi-list toggle-sidebar-btn"></i> *@
         </div><!-- End Logo -->
 
     </header><!-- End Header -->
     <!-- ======= Sidebar ======= -->
-    <aside id="sidebar" class="sidebar">
-
-        <ul class="sidebar-nav" id="sidebar-nav">
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" asp-controller="Dashboard" asp-action="Index">
-                    <i class="bi bi-grid"></i>
-                    <span>Dashboard</span>
-                </a>
-            </li><!-- End Dashboard Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" asp-controller="Jenis_Peralatan" asp-action="Index">
-                    <i class="bi bi-question-circle"></i>
-                    <span>Jenis Peralatan</span>
-                </a>
-            </li><!-- End Jenis Peralatan Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" asp-controller="Peralatan" asp-action="Index">
-                    <i class="bi bi-question-circle"></i>
-                    <span>Peralatan</span>
-                </a>
-            </li><!-- End Peralatan Page Nav -->
-
-            <li class="nav-item">
-                <a class="nav-link collapsed" asp-controller="Peminjaman" asp-action="Index">
-                    <i class="bi bi-person"></i>
-                    <span>Penjualan</span>
-                </a>
-            </li><!-- End Penjualan Page Nav -->
-
-        </ul>
-
-    </aside><!-- End Sidebar-->
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+            <!-- Sidebar navigation-->
+            <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+                <ul id="sidebarnav">
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">HOME</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="Home" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-layout-dashboard"></i>
+                            </span>
+                            <span class="hide-menu">Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">MASTER DATA</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="Jenis_Peralatan" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-article"></i>
+                            </span>
+                            <span class="hide-menu">Jenis_Peralatan</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="Peralatan" aria-expanded="false">
+                            <span>
+                                <i class="ti ti-article"></i>
+                            </span>
+                            <span class="hide-menu">Peralatan</span>
+                        </a>
+                    </li>
+                    <li class="nav-small-cap">
+                        <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                        <span class="hide-menu">TRANSAKSI</span>
+                    </li>
+                    <li class="sidebar-item">
+                        <a class="sidebar-link" href="./authentication-login.html" aria-expanded="false">
+                            <span>
+                                <i class="bi bi-coin"></i>
+                            </span>
+                            <span class="hide-menu">Penjualan</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="unlimited-access hide-menu bg-light-primary position-relative mb-7 mt-5 rounded">
+                    <div class="d-flex">
+                        <div class="unlimited-access-title me-3">
+                            <h6 class="fw-semibold fs-4 mb-6 text-dark w-85">Upgrade to pro</h6>
+                            <a href="https://adminmart.com/product/modernize-bootstrap-5-admin-template/" target="_blank" class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
+                        </div>
+                        <div class="unlimited-access-img">
+                            <img src="../assets/images/backgrounds/rocket.png" alt="" class="img-fluid">
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+    </aside>
 
     <main id="main" class="main">
         @RenderBody()
@@ -115,6 +147,13 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="https://unpkg.com/sweetalert@2.1.2/dist/sweetalert.min.js"></script>
 
+    <script src="~/asset/libs/jquery/dist/jquery.min.js"></script>
+    <script src="~/asset/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/asset/js/sidebarmenu.js"></script>
+    <script src="~/asset/js/app.min.js"></script>
+    <script src="~/asset/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="~/asset/libs/simplebar/dist/simplebar.js"></script>
+    <script src="~/asset/js/dashboard.js"></script>
 
 </body>
 
