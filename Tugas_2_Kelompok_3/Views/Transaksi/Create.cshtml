@@ -1,0 +1,72 @@
+﻿@model Tugas_2_Kelompok_3.Models.Transaksi
+
+@{
+    ViewData["Title"] = "Tambah Transaksi";
+}
+
+<div class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Tambah Transaksi</h4>
+                    </div>
+                    <div class="card-body">
+                        <form method="post" asp-controller="Transaksi" asp-action="Create">
+                            <div class="form-group">
+                                <label asp-for="ID_Peralatan" class="control-label">ID Peralatan</label>
+                                <input asp-for="ID_Peralatan" class="form-control" name="ID_Peralatan" />
+                                <span asp-validation-for="ID_Peralatan" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Tanggal_Transaksi" class="control-label">Tanggal Transaksi</label>
+                                <input asp-for="Tanggal_Transaksi" type="datetime-local" class="form-control" name="Tanggal_Transaksi" />
+                                <span asp-validation-for="Tanggal_Transaksi" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Jenis_Transaksi" class="control-label">Jenis Transaksi</label>
+                                <input asp-for="Jenis_Transaksi" class="form-control" name="Jenis_Transaksi" />
+                                <span asp-validation-for="Jenis_Transaksi" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Jumlah_Item" class="control-label">Jumlah Item</label>
+                                <input asp-for="Jumlah_Item" class="form-control" name="Jumlah_Item" />
+                                <span asp-validation-for="Jumlah_Item" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Total_Harga" class="control-label">Total Harga</label>
+                                <input asp-for="Total_Harga" class="form-control" name="Total_Harga" />
+                                <span asp-validation-for="Total_Harga" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Nama_Pelanggan" class="control-label">Nama Pelanggan</label>
+                                <input asp-for="Nama_Pelanggan" class="form-control" name="Nama_Pelanggan" />
+                                <span asp-validation-for="Nama_Pelanggan" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Metode_Pembayaran" class="control-label">Metode Pembayaran</label>
+                                <input asp-for="Metode_Pembayaran" class="form-control" name="Metode_Pembayaran" />
+                                <span asp-validation-for="Metode_Pembayaran" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Status_Pengiriman" class="control-label">Status Pengiriman</label>
+                                <input asp-for="Status_Pengiriman" class="form-control" name="Status_Pengiriman" />
+                                <span asp-validation-for="Status_Pengiriman" class="text-danger"></span>
+                            </div>
+                            <div class="form-group">
+                                <label asp-for="Alamat_Pengiriman" class="control-label">Alamat Pengiriman</label>
+                                <input asp-for="Alamat_Pengiriman" class="form-control" name="Alamat_Pengiriman" />
+                                <span asp-validation-for="Alamat_Pengiriman" class="text-danger"></span>
+                            </div>
+                            <br />
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Simpan</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
