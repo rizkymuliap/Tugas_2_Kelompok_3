@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Tugas_2_Kelompok_3.Models;
 
 namespace Tugas_2_Kelompok_3.Controllers
@@ -13,20 +14,20 @@ namespace Tugas_2_Kelompok_3.Controllers
                 new Peralatan
                 {
                     Id = 1,
-                    nama_peralatan = "Boyolali",
-                    Id_jenis = 1,
-                    deskripsi_peralatan = "Roni Prasetyo",
-                    Harga_Beli = 100000,
-                    stok = 20,
+                    nama_peralatan = "Bola Karet",
+                    Id_jenis = 2,
+                    deskripsi_peralatan = "Bola karet Mainan motorik hewan",
+                    Harga_Beli = 75000,
+                    stok = 50,
                     status = 1
                 },
                 new Peralatan
                 {
                     Id = 2,
-                    nama_peralatan = "Boyolali",
+                    nama_peralatan = "Pet Bowl 26cm",
                     Id_jenis = 1,
-                    deskripsi_peralatan = "Roni Prasetyo",
-                    Harga_Beli = 100000,
+                    deskripsi_peralatan = "Tempat Makan Mangkuk Besi",
+                    Harga_Beli = 43000,
                     stok = 20,
                     status = 1
                 }
@@ -42,6 +43,27 @@ namespace Tugas_2_Kelompok_3.Controllers
         [HttpGet]
         public IActionResult Create()
         {
+            // Buat instansiasi dari Jenis_PeralatanController
+            var jenisPeralatanController = new Jenis_PeralatanController();
+
+            // Panggil metode GetJenisPeralatan pada instansiasi tersebut
+            List<Jenis_Peralatan> jenisPeralatanList = jenisPeralatanController.GetJenisPeralatan();
+
+            if (jenisPeralatanList != null && jenisPeralatanList.Count > 0)
+            {
+                // Konversi daftar jenis peralatan menjadi SelectList
+                SelectList jenisList = new SelectList(jenisPeralatanList, "Id", "nama_jenis_peralatan");
+
+                // Simpan SelectList dalam ViewBag untuk digunakan di dalam view
+                ViewBag.JenisList = jenisList;
+            }
+            else
+            {
+                // Handle jika daftar jenis peralatan kosong atau null
+                ViewBag.JenisList = new SelectList(new List<SelectListItem>());
+                TempData["ErrorMessage"] = "Tidak ada jenis peralatan yang tersedia.";
+            }
+
             return View();
         }
 

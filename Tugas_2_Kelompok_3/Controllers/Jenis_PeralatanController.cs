@@ -14,15 +14,15 @@ namespace Tugas_2_Kelompok_3.Controllers
                 new Jenis_Peralatan
                 {
                     Id = 1,
-                    nama_jenis_peralatan = "Boyolali",
-                    deskripsi_jenis_peralatan = "Roni Prasetyo",
+                    nama_jenis_peralatan = "Alat Makan",
+                    deskripsi_jenis_peralatan = "Menyimpan semua alat makan (mangkok, piring) dalam berbagai jenis bahan",
                     status = 1
                 },
                 new Jenis_Peralatan
                 {
                     Id = 2,
-                    nama_jenis_peralatan = "Boyolali",
-                    deskripsi_jenis_peralatan = "Roni Prasetyo",
+                    nama_jenis_peralatan = "Mainan",
+                    deskripsi_jenis_peralatan = "Untuk semua jenis mainan dalam berbagai jenis",
                     status = 1
                 }
             };
@@ -86,6 +86,11 @@ namespace Tugas_2_Kelompok_3.Controllers
             }
 
             return Json(response);
+        }
+
+        public List<Jenis_Peralatan> GetJenisPeralatan()
+        {
+            return jenis_Peralatans;
         }
 
         [HttpGet]

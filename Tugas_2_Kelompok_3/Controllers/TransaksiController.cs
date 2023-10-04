@@ -15,28 +15,28 @@ public class TransaksiController : Controller
         new Transaksi
         {
             Id_trs = 1,
-            ID_Peralatan = 101,
+            ID_Peralatan = 2,
             Tanggal_Transaksi = DateTime.Now,
             Jenis_Transaksi = "Penjualan",
             Jumlah_Item = 5,
-            Total_Harga = 500000,
+            Total_Harga = 215000,
             Nama_Pelanggan = "John Doe",
             Metode_Pembayaran = "Transfer Bank",
             Status_Pengiriman = "Dalam Pengiriman",
-            Alamat_Pengiriman = "Jl. Contoh No. 123"
+            Alamat_Pengiriman = "Jl. Pemuda Bersinar No. 123"
         },
         new Transaksi
         {
             Id_trs = 2,
-            ID_Peralatan = 102,
+            ID_Peralatan = 1,
             Tanggal_Transaksi = DateTime.Now,
-            Jenis_Transaksi = "Pembelian",
+            Jenis_Transaksi = "Penjualan",
             Jumlah_Item = 3,
-            Total_Harga = 300000,
+            Total_Harga = 225000,
             Nama_Pelanggan = "Jane Smith",
             Metode_Pembayaran = "Kartu Kredit",
             Status_Pengiriman = "Diterima",
-            Alamat_Pengiriman = "Jl. Contoh No. 456"
+            Alamat_Pengiriman = "Jl. Pendidikan Maju No. 456"
         }
     };
         return initialData;
