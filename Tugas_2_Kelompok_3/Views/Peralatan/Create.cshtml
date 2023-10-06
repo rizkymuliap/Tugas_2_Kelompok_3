@@ -17,12 +17,18 @@
                         <form method="post" asp-controller="Peralatan" asp-action="Create">
                             <div class="form-group">
                                 <label asp-for="nama_peralatan" class="control-label">Nama Peralatan</label>
-                                <input asp-for="nama_peralatan" class="form-control" name="nama_jenis_peralatan" />
+                                <input asp-for="nama_peralatan" class="form-control" name="nama_peralatan" />
                                 <span asp-validation-for="nama_peralatan" class="text-danger"></span>
                             </div>
                             <div class="form-group">
-                                <label asp-for="Id_jenis" class="control-label">ID Jenis</label>
-                                <input asp-for="Id_jenis" class="form-control" name="Id_jenis" />
+                                <label asp-for="Id_jenis" class="control-label">Jenis Peralatan</label>
+                                <select asp-for="Id_jenis" class="form-control" name="Id_jenis">
+                                    <option value="">Pilih Jenis Peralatan</option>
+                                    @foreach (var jenis in ViewBag.JenisList)
+                                    {
+                                        <option value="@jenis.Value">@jenis.Text</option>
+                                    }
+                                </select>
                                 <span asp-validation-for="Id_jenis" class="text-danger"></span>
                             </div>
                             <div class="form-group">

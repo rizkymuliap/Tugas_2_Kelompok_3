@@ -51,7 +51,7 @@ namespace Tugas_2_Kelompok_3.Controllers
 
             if (jenisPeralatanList != null && jenisPeralatanList.Count > 0)
             {
-                // Konversi daftar jenis peralatan menjadi SelectList
+                // Konversi daftar jenis peralatan menjadi SelectListx
                 SelectList jenisList = new SelectList(jenisPeralatanList, "Id", "nama_jenis_peralatan");
 
                 // Simpan SelectList dalam ViewBag untuk digunakan di dalam view
@@ -86,6 +86,8 @@ namespace Tugas_2_Kelompok_3.Controllers
                 TempData["SuccessMessage"] = "Data berhasil ditambahkan";
                 return RedirectToAction("Index");
             }
+
+           
 
             return View(peralatan);
         }
