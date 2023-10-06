@@ -26,7 +26,10 @@
                             </div>
                             <div class="form-group">
                                 <label asp-for="Jenis_Transaksi" class="control-label">Jenis Transaksi</label>
-                                <input asp-for="Jenis_Transaksi" class="form-control" name="Jenis_Transaksi" />
+                                <select asp-for="Jenis_Transaksi" class="form-control" name="Jenis_Transaksi">
+                                    <option value="Pilihan1">Penjualan</option>
+                                    <option value="Pilihan2">Pembelian</option>
+                                </select>
                                 <span asp-validation-for="Jenis_Transaksi" class="text-danger"></span>
                             </div>
                             <div class="form-group">
